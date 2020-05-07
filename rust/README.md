@@ -68,6 +68,21 @@ Now clippy is installed and you can run the clippy by running:
 $ cargo clippy
 ```
 
+## Rustfmt
+A tool for formatting Rust code according to style guidelines. Rustfmt automatically formats your code base whenever it get triggered.
+
+Installation:
+```
+$ rustup component add rustfmt
+```
+
+Format your code as per style guidelines:
+```
+$ cargo fmt
+```
+
+Rustfmt is configurable, you can create your own custom TOML file for Rustfmt called as [`rustfmt.toml`](rustfmt.toml) and place it into your project directory beside your cargo.toml.
+
 ## Tarpaulin:
 A tool for compiling unit test coverage for cargo. It is a command-line program you can install it by using cargo install.
 
