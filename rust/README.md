@@ -67,6 +67,8 @@ Now clippy is installed and you can run the clippy by running:
 ```
 $ cargo clippy
 ```
+Clippy is configurable, you can create your own custom TOML file for Clippy called as [`clippy.toml`](clippy.toml) and place it into your project directory beside your cargo.toml.
+
 
 ## Rustfmt
 A tool for formatting Rust code according to style guidelines. Rustfmt automatically formats your code base whenever it get triggered.
