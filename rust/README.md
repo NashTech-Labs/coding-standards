@@ -97,5 +97,8 @@ Check code coverage using:
 ```
 $ cargo tarpaulin -v 
 ```
-
-
+To get the report for the coverage:
+```
+$ cargo tarpaulin --out Xml
+```
+This command generates a `cobertura.xml` file that is compatible with CodeSquad. To upload the report in CodeSquad you can refer [`this`](https://www.getcodesquad.com/dashboard/help). 
