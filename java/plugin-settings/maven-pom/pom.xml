@@ -12,40 +12,46 @@
   <url>http://www.knoldus.com</url>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <checkstyle.config.fail.on.error>true</checkstyle.config.fail.on.error>
+    <findbugs.config.fail.on.error>false</findbugs.config.fail.on.error>
+    <jacoco.execs.directory>${project.basedir}/../target/jacoco</jacoco.execs.directory>
+    <javadoc.config.fail.on.error>false</javadoc.config.fail.on.error>
+    <jdk.version>1.8</jdk.version>
+    <junit.version>4.11</junit.version>
+    <kafka.clients.version>1.0.0</kafka.clients.version>
+    <kafka.scala.version>2.12</kafka.scala.version>
+    <maven.assembly-plugin.version>2.6</maven.assembly-plugin.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <jacoco.execs.directory>${project.basedir}/../target/jacoco</jacoco.execs.directory>
-    <maven.assembly-plugin.version>2.6</maven.assembly-plugin.version>
     <maven.checkstyle.plugin.version>2.17</maven.checkstyle.plugin.version>
+    <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
     <maven.compiler.plugin>3.8.0</maven.compiler.plugin>
+    <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
     <maven.enforcer.plugin.version>1.4.1</maven.enforcer.plugin.version>
     <maven.failsafe.plugin.version>2.22.1</maven.failsafe.plugin.version>
     <maven.findbugs.plugin.version>3.0.4</maven.findbugs.plugin.version>
+    <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
     <maven.jacoco.plugin.version>0.7.9</maven.jacoco.plugin.version>
+    <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
     <maven.javadoc.plugin.version>2.10.4</maven.javadoc.plugin.version>
     <maven.pmd.plugin.version>3.10.0</maven.pmd.plugin.version>
-    <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
+    <maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
     <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
     <maven.spotbugs.plugin.version>3.1.12</maven.spotbugs.plugin.version>
-    <jdk.version>1.8</jdk.version>
-    <kafka.clients.version>1.0.0</kafka.clients.version>
-    <kafka.scala.version>2.12</kafka.scala.version>
-    <zookeeper.version>3.4.13</zookeeper.version>
-    <skip.unit.tests>false</skip.unit.tests>
-    <skip.jacoco.aggregate>false</skip.jacoco.aggregate>
-    <checkstyle.config.fail.on.error>true</checkstyle.config.fail.on.error>
-    <findbugs.config.fail.on.error>false</findbugs.config.fail.on.error>
-    <javadoc.config.fail.on.error>false</javadoc.config.fail.on.error>
-    <skipCodeAnalysis>false</skipCodeAnalysis>
+    <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
     <minimum.code.coverage>0.80</minimum.code.coverage>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <skipCodeAnalysis>false</skipCodeAnalysis>
+    <skip.jacoco.aggregate>false</skip.jacoco.aggregate>
+    <skip.unit.tests>false</skip.unit.tests>
+    <zookeeper.version>3.4.13</zookeeper.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -56,24 +62,24 @@
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>${maven.clean.plugin.version}</version>
         </plugin>
         <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
+          <version>${maven.resources.plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
+          <version>${maven.jar.plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
+          <version>${maven.install.plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
+          <version>${maven.deploy.plugin.version}</version>
           <executions>
             <execution>
               <id>default-deploy</id>
