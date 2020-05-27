@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SpotBugs Report</title>
+<style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+		</style>
+</head>
+<body>
+<h1>SpotBugs Report</h1>
+<p>Produced using <a href="https://spotbugs.github.io">SpotBugs</a>3.1.12.</p>
+<p>Project: 
+			</p>
+<h2>Metrics</h2>
+<p>23 lines of code analyzed,
+	in 2 classes, 
+	in 1 packages.</p>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Metric</th>
+<th align="right">Total</th>
+<th align="right">Density*</th>
+</tr>
+<tr class="tablerow0">
+<td>High Priority Warnings</td>
+<td align="right">1</td>
+<td align="right">43.48</td>
+</tr>
+<tr class="tablerow1">
+<td>Medium Priority Warnings</td>
+<td align="right"/>
+<td align="right">NaN</td>
+</tr>
+<tr class="$totalClass">
+<td>
+<b>Total Warnings</b>
+</td>
+<td align="right">
+<b>1</b>
+</td>
+<td align="right">
+<b>43.48</b>
+</td>
+</tr>
+</table>
+<p>
+<i>(* Defects per Thousand lines of non-commenting source statements)</i>
+</p>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Summary</h2>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Warning Type</th>
+<th align="right">Number</th>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_SECURITY">Security Warnings</a>
+</td>
+<td align="right">1</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<b>Total</b>
+</td>
+<td align="right">
+<b>1</b>
+</td>
+</tr>
+</table>
+<p>
+<br/>
+<br/>
+</p>
+<h1>Warnings</h1>
+<p>Click on each warning link to see a full description of the issue, and
+	    details of how to resolve it.</p>
+<h2>
+<a name="Warnings_SECURITY">Security Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="2" cellpadding="5">
+<tr class="tableheader">
+<th align="left">Warning</th>
+<th align="left">Priority</th>
+<th align="left">Details</th>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#PATH_TRAVERSAL_IN">Potential Path Traversal (file read)</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>java/io/File.&lt;init&gt;(Ljava/lang/String;)V reads a file whose location might be specified by user input<br/>
+<br/>
+<br/>In file ExampleLogic.scala,
+					
+						line 20<br/>In class com.knoldus.styleguide.ExampleLogic$<br/>In method com.knoldus.styleguide.ExampleLogic$.main(String[])<br/>At ExampleLogic.scala:[line 20]<br/>Sink method java/io/File.&lt;init&gt;(Ljava/lang/String;)V<br/>Sink parameter 0<br/>Method usage with tainted arguments detected<br/>In ExampleLogic.scala</p>
+</td>
+</tr>
+</table>
+<p>
+<br/>
+<br/>
+</p>
+<p>
+<br/>
+<br/>
+</p>
+<h1>
+<a name="Details">Warning Types</a>
+</h1>
+<h2>
+<a name="PATH_TRAVERSAL_IN">Potential Path Traversal (file read)</a>
+</h2>
+            
+<p>A file is opened to read its content. The filename comes from an <b>input</b> parameter. 
+If an unfiltered parameter is passed to this file API, files from an arbitrary filesystem location could be read.</p>
+<p>This rule identifies <b>potential</b> path traversal vulnerabilities. In many cases, the constructed file path cannot be controlled
+by the user. If that is the case, the reported instance is a false positive.</p>
+<br/>
+
+<p>
+    <b>Vulnerable Code:</b><br/>
+<pre>@GET
+@Path("/images/{image}")
+@Produces("images/*")
+public Response getImage(@javax.ws.rs.PathParam("image") String image) {
+    File file = new File("resources/images/", image); //Weak point
+
+    if (!file.exists()) {
+        return Response.status(Status.NOT_FOUND).build();
+    }
+
+    return Response.ok().entity(new FileInputStream(file)).build();
+}</pre>
+</p>
+<br/>
+
+<p>
+    <b>Solution:</b><br/>
+<pre>import org.apache.commons.io.FilenameUtils;
+
+@GET
+@Path("/images/{image}")
+@Produces("images/*")
+public Response getImage(@javax.ws.rs.PathParam("image") String image) {
+    File file = new File("resources/images/", FilenameUtils.getName(image)); //Fix
+
+    if (!file.exists()) {
+        return Response.status(Status.NOT_FOUND).build();
+    }
+
+    return Response.ok().entity(new FileInputStream(file)).build();
+}</pre>
+</p>
+<br/>
+<p>
+<b>References</b><br/>
+<a href="http://projects.webappsec.org/w/page/13246952/Path%20Traversal">WASC: Path Traversal</a><br/>
+<a href="https://www.owasp.org/index.php/Path_Traversal">OWASP: Path Traversal</a><br/>
+<a href="http://capec.mitre.org/data/definitions/126.html">CAPEC-126: Path Traversal</a><br/>
+<a href="http://cwe.mitre.org/data/definitions/22.html">CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')</a>
+</p>
+
+        
+<p>
+<br/>
+<br/>
+</p>
+</body>
+</html>

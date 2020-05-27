@@ -1,0 +1,4 @@
+[debug] "not up to date. inChanged = true, force = false
+[debug] Updating ProjectRef(uri("file:/home/knoldus/Projects/LAC-Sharding-v1/exercises/scala-style-guide/project/"), "scala-style-guide-build")...
+[debug] Done updating ProjectRef(uri("file:/home/knoldus/Projects/LAC-Sharding-v1/exercises/scala-style-guide/project/"), "scala-style-guide-build")
+[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.

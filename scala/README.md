@@ -9,3 +9,6 @@ Below tools should be configured and used in every Scala projects.
 - sbt-cpd - Duplicate code detection
 - FindSecBugs - To detect security vulnerabilities.  
 - Scalafmt - To format the code we write for optimum readability
+
+# Sample Project  
+The sample project exists under directory `scala-style-guide-sample-project` that can be taken as a reference for setting up plugins and configurations.
