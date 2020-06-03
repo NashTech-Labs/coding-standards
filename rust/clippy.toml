@@ -7,3 +7,61 @@ too-many-arguments-threshold = 3
 max-fn-params-bools = 3
 max-struct-bools = 3
 too-many-lines-threshold = 25
+
+
+# blacklisted_name:
+# Contains a list of names that are blacklisted to use in a program. 
+# Input Type: Vec<String>
+# Default value: ["foo", "bar", "baz", "quux"]
+# Category:  Style
+# Example: blacklisted-names = [“blacklist_name1”, “blacklist_name2”]
+
+#too_many_arguments:
+# Sets the threshold of number of arguments for a function.
+# Input Type: u64
+# Default value: 7
+# Category:  Complexity
+# Example: too-many-arguments-threshold = 7
+
+# enum_variant_names:
+# Denotes the minimum number of variants for an enum.
+# Input Type: u64
+# Default value: 3
+# Category:  Style
+# Example: enum-variant-name-threshold = 3
+
+# many_single_char_names:
+# Sets the minimum number of single characters used in a program.
+# Input Type: u64
+# Default value: 4
+# Category:  Style
+# Example: single-char-binding-names-threshold = 2
+
+# cognitive_complexity:
+# Check for methods containing high cognitive complexity.
+# Input Type: u64
+# Default value: 25
+# Category:  Nursery
+# Example: cognitive-complexity-threshold = 20
+
+# fn_params_excessive_bools:
+# Represents maximum number of bools function parameters can have.
+# Input Type: u64
+# Default value: 3
+# Category:  Pedantic
+# Example: max-fn-params-bools = 2
+
+# struct_excessive_bools:
+# Denotes maximum number of bools a struct can have.
+# Input Type: u64
+# Default value: 3
+# Category:  Pedantic
+
+# Example: max-struct-bools = 2
+# too_many_lines:
+# Validates maximum number of lines a function can have.
+# Input Type: u64
+# Default value: 3
+# Category:  Pedantic
+# Example: too-many-lines-threshold = 2
+
