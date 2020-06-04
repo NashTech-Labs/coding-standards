@@ -323,6 +323,27 @@ Although we have Rustmst to format our code, but there are some points that need
     // In case of expressions
     a..(a + b)
     ```
+  * Comments
+    * Prefer line comments (//) to block comments (/* ... */)
+    * Prefer line comments (///) to block comments (/** ... */).
+      ```
+      // When using line comments there should be a single space after the opening sigil.
+      // In case of multi-line comment should have a newline after the opening sigil and before the closing sigil.
+      // Comments should usually be complete sentences. Start with a capital letter, end with a period (.)
+      For example:
+      /// Description of function
+      ///
+      /// # Arguments
+      ///
+      /// * `name` - description
+      ///
+      /// # Return
+      ///
+      /// Description about return type of function
+      ```
+    * Try to use inner doc comments (//! and /*! ... */) to write module-level or crate-level documentation.  
+       
+    
 * File structure
   * `extern crate` statements must be first in a file. They must be ordered alphabetically.
   * `use` statements should come after `extern`.
@@ -362,4 +383,150 @@ Although we have Rustmst to format our code, but there are some points that need
     default-features = false
     features = ["fearure_name"]
     ```
+
+## Attributes Description of Clippy and Rustfmt for stable release:
+
+### Clippy Attributes Description    
+#### blacklisted_name:
+Contains a list of names that are blacklisted to use in a program. 
+```
+Input Type: Vec<String>
+Default value: ["foo", "bar", "baz", "quux"]
+Category:  Style
+
+Example: blacklisted-names = [“blacklist_name1”, “blacklist_name2”]
+```
+#### too_many_arguments:
+Sets the threshold of number of arguments for a function.
+```
+Input Type: u64
+Default value: 7
+Category:  Complexity
+
+Example: too-many-arguments-threshold = 7
+```
+#### enum_variant_names:
+Denotes the minimum number of variants for an enum.
+```
+Input Type: u64
+Default value: 3
+Category:  Style
+
+Example: enum-variant-name-threshold = 3
+```
+
+#### many_single_char_names:
+Sets the minimum number of single characters used in a program.
+```
+Input Type: u64
+Default value: 4
+Category:  Style
+
+Example: single-char-binding-names-threshold = 2
+```
+
+#### cognitive_complexity:
+Check for methods containing high cognitive complexity.
+```
+Input Type: u64
+Default value: 25
+Category:  Nursery
+
+Example: cognitive-complexity-threshold = 20
+```
+
+#### fn_params_excessive_bools:
+Represents maximum number of bools function parameters can have.
+```
+Input Type: u64
+Default value: 3
+Category:  Pedantic
+
+Example: max-fn-params-bools = 2
+```
+
+#### struct_excessive_bools:
+Denotes maximum number of bools a struct can have.
+```
+Input Type: u64
+Default value: 3
+Category:  Pedantic
+
+Example: max-struct-bools = 2
+```
+
+#### too_many_lines:
+Validates maximum number of lines a function can have.
+```
+Input Type: u64
+Default value: 3
+Category:  Pedantic
+
+Example: too-many-lines-threshold = 2
+```
+### Rustfmt Attributes Description   
+#### max_width:
+Represents maximum width of each line.
+```
+Default value: 100
+Input type: unsigned integer
+
+Example: max_width = 80    // sets 80 chars as a maximum width
+```
+#### tab_spaces:
+Denotes number of tabs.
+```
+Default value: 4
+Input type: unsigned integer
+
+Example: tab_spaces = 4    // sets 4 tab spaces as a maximum
+```
+#### reorder_imports:
+Responsible for reordering imports in a lexicographical order.
+```
+Default value: true
+Input type: boolean
+
+Example: reorder_imports = false    // denies for reorder imports 
+```
+#### merge_derives:
+Merge multiple derives into a single one. 
+```
+Default value: true
+Input type: boolean
+
+Example: merge_derives = false    // disables for merge derive
+```
+#### fn_args_layout:
+Represents the layout of parameters in a function signature.
+```
+Default value: “Tall”
+Input type: "Compressed", “Tall”, “Vertical”
+
+Example: merge_derives = “Compressed”    // allows layout of parameters in compressed form
+```
+#### hard_tabs:
+Responsible for allowing/denying of tab spaces.
+```
+Default value: false
+Input type: boolean
+
+Example: hard_tabs = true    // allows to set tab spaces
+```
+#### reorder_modules:
+Helps to reorder modules in a lexicographical manner.
+```
+Default value: true
+Input type: boolean
+
+Example: reorder_modules = false    //  disables the ordering of modules
+```
+#### use_field_init_shorthand:
+Allow us to use field initialization in a compact way.
+```
+Default value: false
+Input type: boolean
+
+Example: use_field_init_shorthand = true    //  allows field initialization
+```
 
