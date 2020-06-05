@@ -1,4 +1,5 @@
 cognitive-complexity-threshold = 20
+# this attribute should be project specific (values can be customized as per project)
 blacklisted-names = ["foo", "too"]
 enum-variant-name-threshold = 3
 single-char-binding-names-threshold = 0
