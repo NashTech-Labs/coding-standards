@@ -1,6 +1,6 @@
 # coding-standards-java
 
-Code Quality plusings which should be used in every Java projects.
+Code Quality plugins which should be used in every Java projects.
 
 ## Checkstyle
 Checkstyle can check many aspects of your source code. It can find class design problems, method design problems. It also has the ability to check code layout and formatting issues.
