@@ -15,10 +15,13 @@
   <!-- Checks that each Java package has a Javadoc file used for commenting. -->
   <!-- See http://checkstyle.sf.net/config_javadoc.html#JavadocPackage       -->
   <module name="JavadocPackage"/>
+
+  <!-- Please refer to Condition6 in Readme_CheckStyle.md for more details -->
   <module name="JavadocMissingWhitespaceAfterAsterisk"/>
 
   <!-- Checks whether files end with a new line.                        -->
   <!-- See http://checkstyle.sf.net/config_misc.html#NewlineAtEndOfFile -->
+  <!-- Please refer to Condition8 in Readme_CheckStyle.md for more details -->
   <module name="NewlineAtEndOfFile"/>
 
   <!-- Checks that property files contain the same keys.         -->
@@ -59,13 +62,17 @@
       <property name="checkFirstSentence" value="false"/>
     </module>
 
+    <!-- Please refer to Condition7 in Readme_CheckStyle.md for more details -->
     <module name="MissingOverride"/>
 
     <!-- Checks for Naming Conventions.                  -->
     <!-- See http://checkstyle.sf.net/config_naming.html -->
+    <!-- Please refer to Condition9 in Readme_CheckStyle.md for more details -->
     <module name="ConstantName"/>
     <module name="LocalFinalVariableName"/>
     <module name="LocalVariableName"/>
+
+    <!-- Please refer to Condition5 in Readme_CheckStyle.md for more details -->
     <module name="MultipleVariableDeclarations"/>
     <module name="MemberName"/>
     <module name="MethodName"/>
@@ -76,22 +83,31 @@
 
     <!-- Checks for imports                              -->
     <!-- See http://checkstyle.sf.net/config_import.html -->
+    <!-- Please refer to Condition10 in Readme_CheckStyle.md for more details -->
     <module name="AvoidStarImport"/>
     <module name="IllegalImport"/>
     <!-- defaults to sun.* packages -->
     <module name="RedundantImport"/>
     <module name="UnusedImports"/>
+
+    <!-- Please refer to Condition1 in Readme_CheckStyle.md for more details -->
     <module name="AvoidStaticImport"/>
+
+    <!-- Please refer to Condition2 in Readme_CheckStyle.md for more details -->
     <module name="ImportOrder"/>
 
     <!-- Checks for Size Violations.                    -->
     <!-- See http://checkstyle.sf.net/config_sizes.html -->
+    <!-- Please refer to Condition4 in Readme_CheckStyle.md for more details -->
     <module name="LineLength">
       <property name="max" value="100"/>
     </module>
+
+    <!-- Please refer to Condition11 in Readme_CheckStyle.md for more details -->
     <module name="MethodLength">
       <property name="max" value="30"/>
     </module>
+    <!-- Please refer to Condition12 in Readme_CheckStyle.md for more details -->
     <module name="ParameterNumber">
       <property name="max" value="14"/>
     </module>
@@ -110,19 +126,25 @@
 
     <!-- Modifier Checks                                    -->
     <!-- See http://checkstyle.sf.net/config_modifiers.html -->
+    <!-- Please refer to Condition13 in Readme_CheckStyle.md for more details -->
     <module name="ModifierOrder"/>
     <module name="RedundantModifier"/>
 
     <!-- Checks for blocks. You know, those {}'s         -->
     <!-- See http://checkstyle.sf.net/config_blocks.html -->
     <module name="AvoidNestedBlocks"/>
+
+    <!-- Please refer to Condition14 in Readme_CheckStyle.md for more details -->
     <module name="EmptyBlock"/>
     <module name="LeftCurly"/>
+
+    <!-- Please refer to Condition15 in Readme_CheckStyle.md for more details -->
     <module name="NeedBraces"/>
     <module name="RightCurly"/>
 
     <!-- Checks for common coding problems               -->
     <!-- See http://checkstyle.sf.net/config_coding.html -->
+    <!-- Please refer to Condition3 in Readme_CheckStyle.md for more details -->
     <module name="EmptyLineSeparator"/>
     <module name="EmptyStatement"/>
     <module name="EqualsHashCode"/>
@@ -133,10 +155,14 @@
     </module>
     <module name="IllegalInstantiation"/>
     <module name="InnerAssignment"/>
+
+    <!-- Please refer to Condition16 in Readme_CheckStyle.md for more details -->
     <module name="MagicNumber">
       <property name="ignoreNumbers"
                 value="-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 24, 30, 60, 128, 256, 512, 1000, 1024, 2048, 4096"/>
     </module>
+
+    <!-- Please refer to Condition17 in Readme_CheckStyle.md for more details -->
     <module name="MissingSwitchDefault"/>
     <module name="SimplifyBooleanExpression"/>
     <module name="SimplifyBooleanReturn"/>
@@ -153,7 +179,9 @@
 
     <!-- Miscellaneous other checks.                   -->
     <!-- See http://checkstyle.sf.net/config_misc.html -->
+    <!-- Please refer to Condition18 in Readme_CheckStyle.md for more details -->
     <module name="ArrayTypeStyle"/>
+    <!-- Please refer to Condition19 in Readme_CheckStyle.md for more details -->
     <module name="FinalParameters"/>
     <!--
     Deactivating this module, as we are tracking "TODOs" with the Maven Taglist plugin
@@ -172,6 +200,7 @@
 
   <!-- Checks properties file for a duplicated properties. -->
   <!-- See http://checkstyle.sourceforge.net/config_misc.html#UniqueProperties -->
+  <!-- Please refer to Condition20 in Readme_CheckStyle.md for more details -->
   <module name="UniqueProperties"/>
 
   <!-- Turn checkstyle off for specific blocks -->
