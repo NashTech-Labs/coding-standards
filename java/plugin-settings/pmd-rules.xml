@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <ruleset name="Custom ruleset">
 
+    <!-- Please refer to Condition1. in Readme_PMD.md for more details.-->
     <!--Code Style-->
     <rule ref="category/java/codestyle.xml">
         <exclude name="LocalVariableCouldBeFinal"/>
@@ -12,12 +13,14 @@
         <exclude name="ConfusingTernary"/>
     </rule>
 
+    <!-- Please refer to Condition2. in Readme_PMD.md for more details.-->
     <!--Multi-Threading-->
     <rule ref="category/java/multithreading.xml">
         <exclude name="UseConcurrentHashMap"/>
         <exclude name="DoNotUseThreads"/>
     </rule>
 
+    <!-- Please refer to Condition3. in Readme_PMD.md for more details.-->
     <!--Error prone-->
     <rule ref="category/java/errorprone.xml">
         <exclude name="AvoidDuplicateLiterals"/>
@@ -26,6 +29,7 @@
         <exclude name="AvoidInstanceofChecksInCatchClause"/>
     </rule>
 
+    <!-- Please refer to Condition4. in Readme_PMD.md for more details.-->
     <!--Design-->
     <rule ref="category/java/design.xml">
         <exclude name="ExcessiveImports"/>
@@ -50,6 +54,7 @@
         </properties>
     </rule>
 
+    <!-- Please refer to Condition5. in Readme_PMD.md for more details.-->
     <!--Documentation-->
     <rule ref="category/java/documentation.xml">
         <exclude name="CommentRequired"/>
