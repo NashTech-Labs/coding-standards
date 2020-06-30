@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite 
+errors="0" failures="0" hostname="shivraj" name="org.scalatest.tools.DiscoverySuite" tests="0" time="0.069" timestamp="2020-06-30T22:36:28">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment">
+    </property>
+    <property 
+    name="sun.boot.library.path" value="/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/amd64">
+</property>
+    <property name="java.vm.version" value="25.131-b11"> </property>
+    <property name="java.vm.vendor" value="Oracle Corporation"> </property>
+    <property name="java.vendor.url" value="http://java.oracle.com/">
+    </property>
+    <property name="path.separator" value=":"> </property>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM">
+    </property>
+    <property name="file.encoding.pkg" value="sun.io"> </property>
+    <property name="user.country" value="IN"> </property>
+    <property name="sun.java.launcher" value="SUN_STANDARD"> </property>
+    <property name="sun.os.patch.level" value="unknown"> </property>
+    <property 
+    name="java.vm.specification.name" value="Java Virtual Machine Specification">
+</property>
+    <property 
+    name="user.dir" value="/home/knoldus/Projects/coding-standards/scala/styleguide">
+</property>
+    <property name="java.runtime.version" value="1.8.0_131-b11"> </property>
+    <property 
+    name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment">
+</property>
+    <property 
+    name="basedir" value="/home/knoldus/Projects/coding-standards/scala/styleguide">
+</property>
+    <property 
+    name="java.endorsed.dirs" value="/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/endorsed">
+</property>
+    <property name="os.arch" value="amd64"> </property>
+    <property name="java.io.tmpdir" value="/tmp"> </property>
+    <property name="line.separator" value=" "> </property>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation">
+    </property>
+    <property name="os.name" value="Linux"> </property>
+    <property name="sun.jnu.encoding" value="UTF-8"> </property>
+    <property 
+    name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib">
+</property>
+    <property 
+    name="java.specification.name" value="Java Platform API Specification">
+</property>
+    <property name="java.class.version" value="52.0"> </property>
+    <property 
+    name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers">
+</property>
+    <property name="os.version" value="4.15.0-99-generic"> </property>
+    <property name="user.home" value="/home/knoldus"> </property>
+    <property name="user.timezone" value=""> </property>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob">
+    </property>
+    <property name="file.encoding" value="UTF-8"> </property>
+    <property name="java.specification.version" value="1.8"> </property>
+    <property name="user.name" value="knoldus"> </property>
+    <property 
+    name="java.class.path" value="/home/knoldus/Projects/coding-standards/scala/styleguide/target/test-classes:/home/knoldus/Projects/coding-standards/scala/styleguide/target/classes:/home/knoldus/.m2/repository/org/scala-lang/scala-library/2.12.6/scala-library-2.12.6.jar:/home/knoldus/.m2/repository/org/scalatest/scalatest_2.12/3.0.0/scalatest_2.12-3.0.0.jar:/home/knoldus/.m2/repository/org/scalactic/scalactic_2.12/3.0.0/scalactic_2.12-3.0.0.jar:/home/knoldus/.m2/repository/org/scala-lang/scala-reflect/2.12.0/scala-reflect-2.12.0.jar:/home/knoldus/.m2/repository/org/scala-lang/modules/scala-xml_2.12/1.0.5/scala-xml_2.12-1.0.5.jar:/home/knoldus/.m2/repository/org/scala-lang/modules/scala-parser-combinators_2.12/1.0.4/scala-parser-combinators_2.12-1.0.4.jar">
+</property>
+    <property name="java.vm.specification.version" value="1.8"> </property>
+    <property name="sun.arch.data.model" value="64"> </property>
+    <property 
+    name="java.home" value="/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre">
+</property>
+    <property 
+    name="sun.java.command" value="org.scalatest.tools.Runner -R /home/knoldus/Projects/coding-standards/scala/styleguide/target/classes /home/knoldus/Projects/coding-standards/scala/styleguide/target/test-classes -o -fWDF /home/knoldus/Projects/coding-standards/scala/styleguide/target/surefire-reports/TestSuite.txt -u /home/knoldus/Projects/coding-standards/scala/styleguide/target/surefire-reports/.">
+</property>
+    <property name="java.specification.vendor" value="Oracle Corporation">
+    </property>
+    <property name="user.language" value="en"> </property>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"> </property>
+    <property name="java.vm.info" value="mixed mode"> </property>
+    <property name="java.version" value="1.8.0_131"> </property>
+    <property 
+    name="java.ext.dirs" value="/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/ext:/usr/java/packages/lib/ext">
+</property>
+    <property 
+    name="sun.boot.class.path" value="/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/resources.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/rt.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/sunrsasign.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/jsse.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/jce.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/charsets.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/jfr.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/classes">
+</property>
+    <property name="java.vendor" value="Oracle Corporation"> </property>
+    <property name="file.separator" value="/"> </property>
+    <property 
+    name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/">
+</property>
+    <property name="sun.cpu.endian" value="little"> </property>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"> </property>
+    <property name="sun.desktop" value="gnome"> </property>
+    <property name="sun.cpu.isalist" value=""> </property>
+  </properties>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

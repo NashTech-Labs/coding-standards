@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.knoldus</groupId>
+    <artifactId>styleguide</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <java.version>1.8</java.version>
+        <scala.version>2.12.6</scala.version>
+    </properties>
+    <dependencies>
+        <!-- scala-maven-plugin determines the Scala version to use from this dependency -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest -->
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.12</artifactId>
+            <version>3.0.0</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+    <plugins>
+        <!-- Use scala-maven-plugin for Scala support -->
+        <plugin>
+            <groupId>net.alchim31.maven</groupId>
+            <artifactId>scala-maven-plugin</artifactId>
+            <version>3.2.2</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <!-- Need to specify this explicitly, otherwise plugin won't be called when doing e.g. mvn compile -->
+                        <goal>compile</goal>
+                        <goal>testCompile</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+            <groupId>org.scalastyle</groupId>
+            <artifactId>scalastyle-maven-plugin</artifactId>
+            <version>0.8.0</version>
+            <configuration>
+                <verbose>false</verbose>
+                <failOnViolation>true</failOnViolation>
+                <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                <failOnWarning>false</failOnWarning>
+                <sourceDirectory>${project.basedir}/src/main/scala</sourceDirectory>
+                <testSourceDirectory>${project.basedir}/src/test/scala</testSourceDirectory>
+                <configLocation>${project.basedir}/lib/scalastyle_config.xml</configLocation>
+                <testConfigLocation>${project.basedir}/lib/scalastyle_test_config.xml</testConfigLocation>
+                <outputFile>${project.basedir}/scalastyle-output.xml</outputFile>
+                <outputEncoding>UTF-8</outputEncoding>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <version>3.13.0</version>
+            <configuration>
+                <linkXref>true</linkXref>
+                <sourceEncoding>utf-8</sourceEncoding>
+                <minimumTokens>100</minimumTokens>
+                <targetJdk>1.8</targetJdk>
+                <excludes>
+                    <exclude>**/*Bean.java</exclude>
+                    <exclude>**/generated/*.java</exclude>
+                </excludes>
+                <excludeRoots>
+                    <excludeRoot>target/generated-sources/stubs</excludeRoot>
+                </excludeRoots>
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>org.scoverage</groupId>
+            <artifactId>scoverage-maven-plugin</artifactId>
+            <version>1.1.1</version>
+            <configuration>
+                <scalaVersion>2.10.6</scalaVersion>
+                <highlighting>true</highlighting>
+                <minimumCoverage>0</minimumCoverage>
+                <failOnMinimumCoverage>true</failOnMinimumCoverage>
+                <aggregate>true</aggregate>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>scoverage_unit</id>
+                    <goals>
+                        <goal>check</goal> <!-- or integration-check -->
+                    </goals>
+                    <phase>prepare-package</phase> <!-- or any other phase -->
+                </execution>
+                <execution>
+                    <id>scoverage_integration</id>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                    <phase>integration-test</phase>
+                </execution>
+
+            </executions>
+        </plugin>
+
+        <plugin>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest-maven-plugin</artifactId>
+            <version>1.0</version>
+            <configuration>
+                <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                <junitxml>.</junitxml>
+                <filereports>WDF TestSuite.txt</filereports>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>test</id>
+                    <goals>
+                        <goal>test</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+    </plugins>
+    </build>
+</project>

@@ -1,0 +1,28 @@
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial source changes: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	removed:Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	added: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	modified: Set(/home/knoldus/Projects/LAC-Sharding-v1/exercises/scala-style-guide/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(com.knoldus.styleguide.ExampleLogic)[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll sources are invalidated.[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: com.knoldus.styleguide.ExampleLogic[0m
+[0m[[0m[0mdebug[0m] [0m[0mRecompiling all sources: number of invalidated sources > 50.0% of all sources[0m
+[0m[[0m[0minfo[0m] [0m[0mCompiling 1 Scala source to /home/knoldus/Projects/LAC-Sharding-v1/exercises/scala-style-guide/target/scala-2.12/classes ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.3.5:compile for Scala 2.12.4[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.3.5:compile for Scala 2.12.4[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 359746ac for Scala compiler version 2.12.4[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/resources.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/rt.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/sunrsasign.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/jsse.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/jce.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/charsets.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/lib/jfr.jar:/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre/classes:/home/knoldus/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.4/scala-library-2.12.4.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/knoldus/Projects/LAC-Sharding-v1/exercises/scala-style-guide/target/scala-2.12/classes:/home/knoldus/.cache/coursier/v1/https/repo1.maven.org/maven2/com/sksamuel/scapegoat/scalac-scapegoat-plugin_2.12/1.3.8/scalac-scapegoat-plugin_2.12-1.3.8.jar:/home/knoldus/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.4/scala-reflect-2.12.4.jar:/home/knoldus/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.0.6/scala-xml_2.12-1.0.6.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 0.686422031 s[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone compiling.[0m

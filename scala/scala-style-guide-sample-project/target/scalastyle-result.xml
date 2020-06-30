@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<checkstyle version="5.0">
- <file name="/home/knoldus/Projects/LAC-Sharding-v1/exercises/scala-style-guide/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala">
-  <error line="1" source="org.scalastyle.file.HeaderMatchesChecker" severity="warning" message="Header does not match expected text"/>
-  <error column="23" line="7" source="org.scalastyle.scalariform.NullChecker" severity="warning" message="Avoid using null"/>
-  <error column="6" line="5" source="org.scalastyle.scalariform.PublicMethodsHaveTypeChecker" severity="warning" message="Public method must have explicit type"/>
-  <error source="org.scalastyle.file.NewLineAtEofChecker" severity="warning" message="File must end with newline character"/>
- </file>
-</checkstyle>

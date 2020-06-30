@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="5.0">
+ <file name="/home/knoldus/Projects/coding-standards/scala/styleguide/src/main/scala/com.knoldus.example/Example.scala">
+  <error line="1" source="org.scalastyle.file.HeaderMatchesChecker" severity="warning" message="Header does not match expected text"/>
+  <error column="23" line="7" source="org.scalastyle.scalariform.NullChecker" severity="warning" message="Avoid using null"/>
+  <error column="23" line="14" source="org.scalastyle.scalariform.NullChecker" severity="warning" message="Avoid using null"/>
+  <error column="4" line="22" source="org.scalastyle.file.RegexChecker" severity="warning" message="Regular expression matched 'println'"/>
+  <error column="6" line="5" source="org.scalastyle.scalariform.PublicMethodsHaveTypeChecker" severity="warning" message="Public method must have explicit type"/>
+  <error column="6" line="12" source="org.scalastyle.scalariform.PublicMethodsHaveTypeChecker" severity="warning" message="Public method must have explicit type"/>
+  <error column="6" line="18" source="org.scalastyle.scalariform.PublicMethodsHaveTypeChecker" severity="warning" message="Public method must have explicit type"/>
+ </file>
+</checkstyle>

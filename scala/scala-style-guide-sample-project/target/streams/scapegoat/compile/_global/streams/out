@@ -1,9 +1,0 @@
-[0m[[0m[0minfo[0m] [0m[0m[info] [scapegoat] 117 activated inspections[0m
-[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/Projects/LAC-Sharding-v1/exercises/scala-style-guide/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala:7:9: Null assignment[0m
-[0m[[0m[33mwarn[0m] [0m[0m    val Randomoutput = null[0m
-[0m[[0m[33mwarn[0m] [0m[0m        ^[0m
-[0m[[0m[0minfo[0m] [0m[0m[warn] [scapegoat] Analysis complete: 1 files - 0 errors 1 warns 0 infos[0m
-[0m[[0m[0minfo[0m] [0m[0m[info] [scapegoat] Written HTML report [/home/knoldus/Projects/LAC-Sharding-v1/exercises/scala-style-guide/target/scala-2.12/scapegoat-report/scapegoat.html][0m
-[0m[[0m[0minfo[0m] [0m[0m[info] [scapegoat] Written XML report [/home/knoldus/Projects/LAC-Sharding-v1/exercises/scala-style-guide/target/scala-2.12/scapegoat-report/scapegoat.xml][0m
-[0m[[0m[0minfo[0m] [0m[0m[info] [scapegoat] Written Scalastyle XML report [/home/knoldus/Projects/LAC-Sharding-v1/exercises/scala-style-guide/target/scala-2.12/scapegoat-report/scapegoat-scalastyle.xml][0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

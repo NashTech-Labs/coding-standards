@@ -1,0 +1,18 @@
+[0m[[0m[0minfo[0m] [0m[0mscalastyle using config /home/knoldus/Projects/coding-standards/scala/scala-style-guide-sample-project/scalastyle-config.xml[0m
+[0m[[0m[0mdebug[0m] [0m[0mStarting scalastyle[0m
+[0m[[0m[0mdebug[0m] [0m[0mstart file /home/knoldus/Projects/coding-standards/scala/scala-style-guide-sample-project/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/Projects/coding-standards/scala/scala-style-guide-sample-project/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala:1: Header does not match expected text[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/Projects/coding-standards/scala/scala-style-guide-sample-project/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala:7:23: Avoid using null[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/Projects/coding-standards/scala/scala-style-guide-sample-project/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala:14:23: Avoid using null[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/Projects/coding-standards/scala/scala-style-guide-sample-project/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala:22:4: Regular expression matched 'println'[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/Projects/coding-standards/scala/scala-style-guide-sample-project/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala:5:6: Public method must have explicit type[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/Projects/coding-standards/scala/scala-style-guide-sample-project/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala:12:6: Public method must have explicit type[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/knoldus/Projects/coding-standards/scala/scala-style-guide-sample-project/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala:18:6: Public method must have explicit type[0m
+[0m[[0m[0mdebug[0m] [0m[0mend file /home/knoldus/Projects/coding-standards/scala/scala-style-guide-sample-project/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala[0m
+[0m[[0m[0minfo[0m] [0m[0mscalastyle Processed 1 file(s)[0m
+[0m[[0m[0minfo[0m] [0m[0mscalastyle Found 0 errors[0m
+[0m[[0m[0minfo[0m] [0m[0mscalastyle Found 7 warnings[0m
+[0m[[0m[0minfo[0m] [0m[0mscalastyle Found 0 infos[0m
+[0m[[0m[0minfo[0m] [0m[0mscalastyle Finished in 32 ms[0m
+[0m[[0m[32msuccess[0m] [0m[0mcreated output: /home/knoldus/Projects/coding-standards/scala/scala-style-guide-sample-project/target[0m
+[0m[[0m[33mwarn[0m] [0m[0mwarnings exist[0m

@@ -1,5 +1,0 @@
-<checkstyle version="5.0" generatedBy="scapegoat">
-      <file name="/home/knoldus/Projects/LAC-Sharding-v1/exercises/scala-style-guide/src/main/scala/com/knoldus/styleguide/ExampleLogic.scala">
-      <error line="7" message="Null assignment" severity="Warning" source="com.sksamuel.scapegoat.inspections.nulls.NullAssignment" snippet="Null assignment on line 7"></error>
-    </file>
-    </checkstyle>
