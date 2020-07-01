@@ -61,7 +61,6 @@
                 <sourceDirectory>${project.basedir}/src/main/scala</sourceDirectory>
                 <testSourceDirectory>${project.basedir}/src/test/scala</testSourceDirectory>
                 <configLocation>${project.basedir}/lib/scalastyle_config.xml</configLocation>
-                <testConfigLocation>${project.basedir}/lib/scalastyle_test_config.xml</testConfigLocation>
                 <outputFile>${project.basedir}/scalastyle-output.xml</outputFile>
                 <outputEncoding>UTF-8</outputEncoding>
             </configuration>
@@ -96,9 +95,9 @@
         <plugin>
             <groupId>org.scoverage</groupId>
             <artifactId>scoverage-maven-plugin</artifactId>
-            <version>1.1.1</version>
+            <version>1.4.0</version>
             <configuration>
-                <scalaVersion>2.10.6</scalaVersion>
+                <scalaVersion>2.12.6</scalaVersion>
                 <highlighting>true</highlighting>
                 <minimumCoverage>0</minimumCoverage>
                 <failOnMinimumCoverage>true</failOnMinimumCoverage>
@@ -119,7 +118,6 @@
                     </goals>
                     <phase>integration-test</phase>
                 </execution>
-
             </executions>
         </plugin>
 
@@ -144,4 +142,17 @@
 
     </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.scoverage</groupId>
+                <artifactId>scoverage-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <aggregate>true</aggregate>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>

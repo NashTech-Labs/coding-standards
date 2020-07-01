@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuite 
-errors="0" failures="0" hostname="shivraj" name="com.knoldus.styleguide.ExampleLogicSpec" tests="1" time="0.062" timestamp="2020-06-30T22:36:28">
+errors="0" failures="0" hostname="shivraj" name="com.knoldus.styleguide.ExampleLogicSpec" tests="1" time="0.354" timestamp="2020-07-01T15:17:39">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment">
     </property>
@@ -60,7 +60,7 @@ errors="0" failures="0" hostname="shivraj" name="com.knoldus.styleguide.ExampleL
     <property name="java.specification.version" value="1.8"> </property>
     <property name="user.name" value="knoldus"> </property>
     <property 
-    name="java.class.path" value="/home/knoldus/Projects/coding-standards/scala/styleguide/target/test-classes:/home/knoldus/Projects/coding-standards/scala/styleguide/target/classes:/home/knoldus/.m2/repository/org/scala-lang/scala-library/2.12.6/scala-library-2.12.6.jar:/home/knoldus/.m2/repository/org/scalatest/scalatest_2.12/3.0.0/scalatest_2.12-3.0.0.jar:/home/knoldus/.m2/repository/org/scalactic/scalactic_2.12/3.0.0/scalactic_2.12-3.0.0.jar:/home/knoldus/.m2/repository/org/scala-lang/scala-reflect/2.12.0/scala-reflect-2.12.0.jar:/home/knoldus/.m2/repository/org/scala-lang/modules/scala-xml_2.12/1.0.5/scala-xml_2.12-1.0.5.jar:/home/knoldus/.m2/repository/org/scala-lang/modules/scala-parser-combinators_2.12/1.0.4/scala-parser-combinators_2.12-1.0.4.jar">
+    name="java.class.path" value="/home/knoldus/Projects/coding-standards/scala/styleguide/target/test-classes:/home/knoldus/Projects/coding-standards/scala/styleguide/target/scoverage-classes:/home/knoldus/.m2/repository/org/scala-lang/scala-library/2.12.6/scala-library-2.12.6.jar:/home/knoldus/.m2/repository/org/scalatest/scalatest_2.12/3.0.0/scalatest_2.12-3.0.0.jar:/home/knoldus/.m2/repository/org/scalactic/scalactic_2.12/3.0.0/scalactic_2.12-3.0.0.jar:/home/knoldus/.m2/repository/org/scala-lang/scala-reflect/2.12.0/scala-reflect-2.12.0.jar:/home/knoldus/.m2/repository/org/scala-lang/modules/scala-xml_2.12/1.0.5/scala-xml_2.12-1.0.5.jar:/home/knoldus/.m2/repository/org/scala-lang/modules/scala-parser-combinators_2.12/1.0.4/scala-parser-combinators_2.12-1.0.4.jar:/home/knoldus/.m2/repository/org/scoverage/scalac-scoverage-runtime_2.12/1.4.0/scalac-scoverage-runtime_2.12-1.4.0.jar">
 </property>
     <property name="java.vm.specification.version" value="1.8"> </property>
     <property name="sun.arch.data.model" value="64"> </property>
@@ -68,7 +68,7 @@ errors="0" failures="0" hostname="shivraj" name="com.knoldus.styleguide.ExampleL
     name="java.home" value="/home/knoldus/Documents/software/jdk-8u131-linux-x64/jdk1.8.0_131/jre">
 </property>
     <property 
-    name="sun.java.command" value="org.scalatest.tools.Runner -R /home/knoldus/Projects/coding-standards/scala/styleguide/target/classes /home/knoldus/Projects/coding-standards/scala/styleguide/target/test-classes -o -fWDF /home/knoldus/Projects/coding-standards/scala/styleguide/target/surefire-reports/TestSuite.txt -u /home/knoldus/Projects/coding-standards/scala/styleguide/target/surefire-reports/.">
+    name="sun.java.command" value="org.scalatest.tools.Runner -R /home/knoldus/Projects/coding-standards/scala/styleguide/target/scoverage-classes /home/knoldus/Projects/coding-standards/scala/styleguide/target/test-classes -o -fWDF /home/knoldus/Projects/coding-standards/scala/styleguide/target/surefire-reports/TestSuite.txt -u /home/knoldus/Projects/coding-standards/scala/styleguide/target/surefire-reports/.">
 </property>
     <property name="java.specification.vendor" value="Oracle Corporation">
     </property>
@@ -93,8 +93,7 @@ errors="0" failures="0" hostname="shivraj" name="com.knoldus.styleguide.ExampleL
     <property name="sun.cpu.isalist" value=""> </property>
   </properties>
   <testcase 
-  name="ExampleLogic.getResult should return valid output" classname="com.knoldus.styleguide.ExampleLogicSpec" time="0.0">
-    <skipped/>
+  name="ExampleLogic.getResult should return valid output" classname="com.knoldus.styleguide.ExampleLogicSpec" time="0.188">
 </testcase>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
