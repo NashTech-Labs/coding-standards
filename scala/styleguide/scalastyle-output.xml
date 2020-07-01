@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="5.0">
+ <file name="/home/knoldus/Projects/coding-standards/scala/styleguide/src/test/scala/com/knoldus/styleguide/ExampleLogicSpec.scala">
+  <error line="1" source="org.scalastyle.file.HeaderMatchesChecker" severity="warning" message="Header does not match expected text"/>
+ </file>
  <file name="/home/knoldus/Projects/coding-standards/scala/styleguide/src/main/scala/com.knoldus.example/Example.scala">
   <error line="1" source="org.scalastyle.file.HeaderMatchesChecker" severity="warning" message="Header does not match expected text"/>
   <error column="23" line="7" source="org.scalastyle.scalariform.NullChecker" severity="warning" message="Avoid using null"/>
