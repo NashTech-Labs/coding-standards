@@ -1,3 +1,0 @@
-<scapegoat count="1" warns="1" errors="0" infos="0">
-      <warning line="7" text="Null assignment" snippet="Null assignment on line 7" level="Warning" file="com.knoldus.styleguide.ExampleLogic.scala" inspection="com.sksamuel.scapegoat.inspections.nulls.NullAssignment"/>
-    </scapegoat>
