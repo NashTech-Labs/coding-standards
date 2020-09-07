@@ -1,0 +1,9 @@
+max_width = 80
+tab_spaces = 4
+merge_derives = true
+reorder_imports = true
+fn_args_layout = "Compressed"
+hard_tabs = false
+reorder_modules = true
+use_field_init_shorthand = true
+

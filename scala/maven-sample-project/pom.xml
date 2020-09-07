@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.knoldus</groupId>
+    <artifactId>styleguide</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <java.version>1.8</java.version>
+        <scala.version>2.12.6</scala.version>
+    </properties>
+    <dependencies>
+        <!-- scala-maven-plugin determines the Scala version to use from this dependency -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest -->
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.12</artifactId>
+            <version>3.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h3xstream.findsecbugs</groupId>
+            <artifactId>findsecbugs-plugin</artifactId>
+            <version>1.10.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+    <plugins>
+        <!-- Use scala-maven-plugin for Scala support -->
+        <plugin>
+            <groupId>net.alchim31.maven</groupId>
+            <artifactId>scala-maven-plugin</artifactId>
+            <version>3.2.2</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <!-- Need to specify this explicitly, otherwise plugin won't be called when doing e.g. mvn compile -->
+                        <goal>compile</goal>
+                        <goal>testCompile</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <!-- scalastyle plugin -->
+        <plugin>
+            <groupId>org.scalastyle</groupId>
+            <artifactId>scalastyle-maven-plugin</artifactId>
+            <version>0.8.0</version>
+            <configuration>
+                <verbose>false</verbose>
+                <failOnViolation>true</failOnViolation>
+                <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                <failOnWarning>false</failOnWarning>
+                <sourceDirectory>${project.basedir}/src/main/scala</sourceDirectory>
+                <testSourceDirectory>${project.basedir}/src/test/scala</testSourceDirectory>
+                <configLocation>${project.basedir}/lib/scalastyle_config.xml</configLocation>
+                <outputFile>${project.basedir}/scalastyle-output.xml</outputFile>
+                <outputEncoding>UTF-8</outputEncoding>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <!-- pmd:cpd plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <version>3.13.0</version>
+            <configuration>
+                <linkXref>true</linkXref>
+                <sourceEncoding>utf-8</sourceEncoding>
+                <minimumTokens>100</minimumTokens>
+                <targetJdk>1.8</targetJdk>
+                <excludes>
+                    <exclude>**/*Bean.java</exclude>
+                    <exclude>**/generated/*.java</exclude>
+                </excludes>
+                <excludeRoots>
+                    <excludeRoot>target/generated-sources/stubs</excludeRoot>
+                </excludeRoots>
+            </configuration>
+        </plugin>
+
+        <!-- Scoverage plugin-->
+        <plugin>
+            <groupId>org.scoverage</groupId>
+            <artifactId>scoverage-maven-plugin</artifactId>
+            <version>1.4.0</version>
+            <configuration>
+                <scalaVersion>2.12.6</scalaVersion>
+                <highlighting>true</highlighting>
+                <minimumCoverage>0</minimumCoverage>
+                <failOnMinimumCoverage>true</failOnMinimumCoverage>
+                <aggregate>true</aggregate>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>scoverage_unit</id>
+                    <goals>
+                        <goal>check</goal> <!-- or integration-check -->
+                    </goals>
+                    <phase>prepare-package</phase> <!-- or any other phase -->
+                </execution>
+                <execution>
+                    <id>scoverage_integration</id>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                    <phase>integration-test</phase>
+                </execution>
+            </executions>
+        </plugin>
+
+        <!-- scalatest plugin-->
+        <plugin>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest-maven-plugin</artifactId>
+            <version>1.0</version>
+            <configuration>
+                <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                <junitxml>.</junitxml>
+                <filereports>WDF TestSuite.txt</filereports>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>test</id>
+                    <goals>
+                        <goal>test</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <!-- spotbug findsecbug plugin -->
+        <plugin>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-maven-plugin</artifactId>
+            <version>3.1.12</version>
+            <configuration>
+                <effort>Max</effort>
+                <threshold>Low</threshold>
+                <failOnError>true</failOnError>
+                <includeFilterFile>${basedir}/spotbugs-security-include.xml</includeFilterFile>
+                <excludeFilterFile>${basedir}/spotbugs-security-exclude.xml</excludeFilterFile>
+                <plugins>
+                    <plugin>
+                        <groupId>com.h3xstream.findsecbugs</groupId>
+                        <artifactId>findsecbugs-plugin</artifactId>
+                        <version>1.9.0</version>
+                    </plugin>
+                </plugins>
+            </configuration>
+        </plugin>
+
+        <!-- plugin for scalafmt -->
+        <plugin>
+            <groupId>org.antipathy</groupId>
+            <!-- The scala binary here doesn't need to match the project version -->
+            <artifactId>mvn-scalafmt_2.12</artifactId>
+            <!-- <artifactId>mvn-scalafmt_${version.scala.binary}</artifactId> -->
+            <version>1.0.1589620826.41b214a</version>
+            <configuration>
+                <configLocation>${project.basedir}/.scalafmt.conf</configLocation> <!-- path to config -->
+                <skipTestSources>false</skipTestSources> <!-- (Optional) skip formatting test sources -->
+                <skipSources>false</skipSources> <!-- (Optional) skip formatting main sources -->
+                <respectVersion>false</respectVersion> <!-- (Optional) fail if no version set in scalafmt.conf -->
+                <sourceDirectories> <!-- (Optional) Paths to source-directories. Overrides ${project.build.sourceDirectory} -->
+                    <param>${project.basedir}/src/main/scala</param>
+                </sourceDirectories>
+                <testSourceDirectories> <!-- (Optional) Paths to test-source-directories. Overrides ${project.build.testSourceDirectory} -->
+                    <param>${project.basedir}/src/test/scala</param>
+                </testSourceDirectories>
+                <validateOnly>false</validateOnly> <!-- check formatting without changing files -->
+                <onlyChangedFiles>true</onlyChangedFiles> <!-- only format (staged) files that have been changed from the specified git branch -->
+                <!-- The git branch to check against
+                     If branch.startsWith(": ") the value in <branch> tag is used as a command to run
+                     and the output will be used as the actual branch-->
+                <branch>: git rev-parse --abbrev-ref HEAD</branch> <!-- the current branch-->
+                <!-- <branch>master</branch>-->
+                <useSpecifiedRepositories>false</useSpecifiedRepositories> <!-- use project repositories configuration for scalafmt dynamic loading -->
+            </configuration>
+            <executions>
+                <execution>
+                    <phase>validate</phase>
+                    <goals>
+                        <goal>format</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+    </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.scoverage</groupId>
+                <artifactId>scoverage-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <aggregate>true</aggregate>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>

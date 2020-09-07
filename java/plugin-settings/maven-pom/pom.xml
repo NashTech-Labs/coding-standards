@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.knoldus.java.app</groupId>
+  <artifactId>sample-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>sample-app</name>
+  <url>http://www.knoldus.com</url>
+
+  <properties>
+    <checkstyle.config.fail.on.error>true</checkstyle.config.fail.on.error>
+    <findbugs.config.fail.on.error>false</findbugs.config.fail.on.error>
+    <jacoco.execs.directory>${project.basedir}/../target/jacoco</jacoco.execs.directory>
+    <javadoc.config.fail.on.error>false</javadoc.config.fail.on.error>
+    <jdk.version>1.8</jdk.version>
+    <junit.version>4.11</junit.version>
+    <kafka.clients.version>1.0.0</kafka.clients.version>
+    <kafka.scala.version>2.12</kafka.scala.version>
+    <maven.assembly-plugin.version>2.6</maven.assembly-plugin.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.checkstyle.plugin.version>2.17</maven.checkstyle.plugin.version>
+    <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
+    <maven.compiler.plugin>3.8.0</maven.compiler.plugin>
+    <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
+    <maven.enforcer.plugin.version>1.4.1</maven.enforcer.plugin.version>
+    <maven.failsafe.plugin.version>2.22.1</maven.failsafe.plugin.version>
+    <maven.findbugs.plugin.version>3.0.4</maven.findbugs.plugin.version>
+    <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
+    <maven.jacoco.plugin.version>0.7.9</maven.jacoco.plugin.version>
+    <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
+    <maven.javadoc.plugin.version>2.10.4</maven.javadoc.plugin.version>
+    <maven.pmd.plugin.version>3.10.0</maven.pmd.plugin.version>
+    <maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
+    <maven.site.plugin.version>3.7.1</maven.site.plugin.version>
+    <maven.spotbugs.plugin.version>3.1.12</maven.spotbugs.plugin.version>
+    <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
+    <minimum.code.coverage>0.80</minimum.code.coverage>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <skipCodeAnalysis>false</skipCodeAnalysis>
+    <skip.jacoco.aggregate>false</skip.jacoco.aggregate>
+    <skip.unit.tests>false</skip.unit.tests>
+    <zookeeper.version>3.4.13</zookeeper.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${maven.clean.plugin.version}</version>
+        </plugin>
+        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${maven.resources.plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${maven.jar.plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${maven.install.plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${maven.deploy.plugin.version}</version>
+          <executions>
+            <execution>
+              <id>default-deploy</id>
+              <phase>deploy</phase>
+              <goals>
+                <goal>deploy</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven.compiler.plugin.version}</version>
+          <configuration>
+            <source>${jdk.version}</source>
+            <target>${jdk.version}</target>
+            <compilerArgs>
+              <arg>-parameters</arg>
+            </compilerArgs>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${maven.enforcer.plugin.version}</version>
+          <executions>
+            <execution>
+              <id>enforce-maven-version</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <requireMavenVersion>
+                    <version>[3.2.1,)</version>
+                  </requireMavenVersion>
+                </rules>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- SpotBugs Static Analysis -->
+        <!-- SpotBugs is a plugin which uses static analysis to look for bugs in the source code-->
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>${maven.spotbugs.plugin.version}</version>
+          <configuration>
+            <effort>Max</effort>
+            <threshold>Low</threshold>
+            <failOnError>true</failOnError>
+            <spotbugsXmlOutputDirectory>${project.build.directory}/findbugs</spotbugsXmlOutputDirectory>
+            <spotbugsXmlOutputFilename>findbugs.xml</spotbugsXmlOutputFilename>
+            <includeFilterFile>${basedir}/spotbugs-security-include.xml</includeFilterFile>
+            <excludeFilterFile>${basedir}/spotbugs-security-exclude.xml</excludeFilterFile>
+            <plugins>
+              <plugin>
+                <groupId>com.h3xstream.findsecbugs</groupId>
+                <artifactId>findsecbugs-plugin</artifactId>
+                <version>1.9.0</version>
+              </plugin>
+            </plugins>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${maven.site.plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${maven.javadoc.plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${maven.surefire.plugin.version}</version>
+          <configuration>
+            <forkCount>1</forkCount>
+            <reuseForks>false</reuseForks>
+            <useSystemClassLoader>false</useSystemClassLoader>
+          </configuration>
+        </plugin>
+
+        <!-- PMD Plugin Configuration -->
+        <!-- PMD is a source code analyzer and produces report on both code violations and
+        detected copy and paste fragments. -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>${maven.pmd.plugin.version}</version>
+          <executions>
+            <execution>
+              <phase>prepare-package</phase>
+              <configuration>
+                <skip>${skipCodeAnalysis}</skip>
+                <rulesets>
+                  <ruleset>pmd-rules.xml</ruleset>
+                </rulesets>
+                <sourceEncoding>utf-8</sourceEncoding>
+                <minimumTokens>100</minimumTokens>
+                <!--minimum code size to be checked for repetition.
+                100 is default and corresponds to  5-10 LOC.-->
+                <targetJdk>${jdk.version}</targetJdk>
+                <outputDirectory>${project.build.directory}/pmd</outputDirectory>
+                <targetDirectory>${project.build.directory}/pmd</targetDirectory>
+                <excludes>
+                  <exclude>**/*Bean.java</exclude>
+                  <exclude>**/generated/*.java</exclude>
+                  <exclude>**/generated-sources/**</exclude>
+                </excludes>
+                <excludeRoots>
+                  <excludeRoot>target/generated-sources/stubs</excludeRoot>
+                </excludeRoots>
+              </configuration>
+              <goals>
+                <goal>pmd</goal>
+                <goal>cpd</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- CheckStyle Plugin Configuration -->
+        <!--Checkstyle plugin checks the source code if it compiles with coding rules and standards -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>${maven.checkstyle.plugin.version}</version>
+          <executions>
+            <execution>
+              <id>validate</id>
+              <phase>validate</phase>
+              <configuration>
+                <configLocation>checkstyle.xml</configLocation>
+                <encoding>UTF-8</encoding>
+                <consoleOutput>true</consoleOutput>
+                <failsOnError>${checkstyle.config.fail.on.error}</failsOnError>
+                <failOnViolation>${checkstyle.config.fail.on.error}</failOnViolation>
+                <outputFile>${basedir}/target/checkstyle/checkstyle-output.xml</outputFile>
+                <skip>${skipCodeAnalysis}</skip>
+              </configuration>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- JaCoCo Plugin Configuration -->
+        <!-- JaCoCo is a code coverage plugin for source code. -->
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${maven.jacoco.plugin.version}</version>
+          <configuration>
+            <excludes>
+              <exclude>**/*Command*</exclude>
+              <exclude>**/*State*</exclude>
+              <exclude>**/*Event*</exclude>
+              <exclude>**/*DTO*</exclude>
+              <exclude>**/*Constants*</exclude>
+              <exclude>**/AkkaManagerAndClusterStarter*</exclude>
+              <exclude>**/*ObjectMapperProvider*</exclude>
+              <exclude>**/metrics/**</exclude>
+              <exclude>**/exception/**</exclude>
+              <exclude>**/models/**</exclude>
+              <exclude>**/testkit/**</exclude>
+              <exclude>**/*KafkaConsumer*</exclude>
+              <exclude>**/*KafkaPayloadConstructionHandler*</exclude>
+            </excludes>
+          </configuration>
+          <executions>
+            <execution>
+              <id>default-prepare-agent</id>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>default-report</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>report</goal>
+              </goals>
+
+            </execution>
+            <execution>
+              <id>default-check</id>
+              <goals>
+                <goal>check</goal>
+              </goals>
+              <configuration>
+                <dataFile>${project.build.directory}/jacoco.exec</dataFile>
+                <rules>
+                  <rule>
+                    <element>CLASS</element>
+                    <limits>
+                      <limit>
+                        <counter>LINE</counter>
+                        <value>COVEREDRATIO</value>
+                        <minimum>.0</minimum>
+                      </limit>
+                    </limits>
+                  </rule>
+                </rules>
+                <skip>${skipCodeAnalysis}</skip>
+              </configuration>
+            </execution>
+            <execution>
+              <id>jacoco-check</id>
+              <phase>test</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <rule implementation="org.jacoco.maven.RuleConfiguration">
+                    <element>BUNDLE</element>
+                    <limits>
+                      <limit implementation="org.jacoco.report.check.Limit">
+                        <counter>INSTRUCTION</counter>
+                        <value>COVEREDRATIO</value>
+                        <minimum>${minimum.code.coverage}</minimum>
+                      </limit>
+                    </limits>
+                  </rule>
+                </rules>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${maven.failsafe.plugin.version}</version>
+          <configuration>
+            <forkCount>1</forkCount>
+            <reuseForks>false</reuseForks>
+          </configuration>
+          <executions>
+            <execution>
+              <id>failsafe-integration-tests</id>
+              <phase>integration-test</phase>
+              <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+              </goals>
+              <configuration>
+                <includes>
+                  <include>**/ct/*.java</include>
+                  <include>**/it/*.java</include>
+                </includes>
+                <skip>${skip.unit.tests}</skip>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <failOnError>${javadoc.config.fail.on.error}</failOnError>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <!-- by default, id = "default" -->
+            <reports>
+              <!-- select non-aggregate reports -->
+              <report>javadoc</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>jxr</report>
+            </reports>
+          </reportSet>
+          <reportSet>
+            <id>aggregate</id>
+            <inherited>false</inherited>
+            <reports>
+              <report>aggregate</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+      </plugin>
+
+    </plugins>
+  </reporting>
+</project>

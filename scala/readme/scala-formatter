@@ -1,0 +1,34 @@
+##Scalafmt
+A formatter tool for Scala source code. It integrates well with the IDE and also allows custom rule configurations.
+
+##Installation and Configuration
+Please refer to the official [page](https://scalameta.org/scalafmt/docs/installation.html)
+
+##Standard configuration
+If your project doesn't define a config already, you can use the attached below conf as standard config. 
+
+```sbtshell
+version = "2.3.2"
+maxColumn = 110
+binPack.literalArgumentLists = true
+continuationIndent {
+  callSite = 2
+  defnSite = 2
+}
+newlines {
+  afterImplicitKWInVerticalMultiline = true
+  beforeImplicitKWInVerticalMultiline = true
+  sometimesBeforeColonInMethodReturnType = true
+}
+docstrings = JavaDoc
+project.git = false
+rewrite {
+  rules = [
+    PreferCurlyFors,
+    SortImports,
+    RedundantBraces,
+    RedundantParens,
+    SortModifiers
+  ]
+}
+```
