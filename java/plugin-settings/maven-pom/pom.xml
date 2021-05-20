@@ -360,6 +360,8 @@
       </plugins>
     </pluginManagement>
   </build>
+  
+  <!-- Reporting Plugins Started -->
   <reporting>
     <plugins>
       <plugin>
